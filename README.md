@@ -10,7 +10,7 @@ I built this because one bad `DELETE` can wipe a table. I let Claude run databas
 
 ## Why it exists
 
-Coding agents run shell commands. Database clients are shell commands too. Claude can type `DELETE FROM customers` and forget the `WHERE`. It can also point `psql` at the wrong host. Either mistake can destroy data in a second.
+Coding agents run shell commands. Database clients are shell commands too. Claude can type `DELETE FROM customers` and forget the `WHERE`. It can also point `psql` at the wrong host. Either mistake can destroy data in a second. It has already happened: in [this reported incident](https://claudeissues.com/issue/13325-claude-opus-4-5-executed-destructive-sql-update-deleting-55-000-records-without), Claude ran an `UPDATE` through a Supabase MCP tool that cleared fields on about 55,000 rows, with no backup to restore from. That route is exactly what v0.2 aims to cover.
 
 Claude Code already shows you each command before it runs. But a long command is easy to skim. After many approvals, you stop reading closely.
 
@@ -92,6 +92,16 @@ The rules match patterns, so they will sometimes be wrong. Query Guard can flag 
 It can also miss things. Some risky commands will slip through. Row counts work only for local SQLite files. Query Guard resolves their paths from the session's working directory.
 
 For hard blocks, use Claude Code's [permission rules](https://code.claude.com/docs/en/settings). For example, add a `deny` rule on `Bash(psql:*)`. On the database side, use read-only roles, separate production credentials, and backups. Treat Query Guard as one extra pause before a step you can't undo.
+
+## Roadmap
+
+- **v0.2: database MCP tools.** Cover tools like the Supabase and Postgres MCP servers, not just Bash.
+- **Skip SQL inside heredoc text.** Don't hold a command when the SQL is only text in a heredoc, like the false positive described above.
+- **Row counts for Postgres.** Use a read-only `EXPLAIN` or `COUNT` to show rows at stake.
+- **Per-project rules file.** Let each project turn rules on or off and add its own.
+- **Run rule tests in CI.** Add a small Bun stand-in for `claude-code/testing` so GitHub Actions can run the rule tests.
+
+Want to help? See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Running the tests
 
