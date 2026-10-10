@@ -1,0 +1,3 @@
+# Lets `bun test` run the rule tests without Claude Code (used by CI).
+[test]
+preload = ["./tests/bun/preload.ts"]

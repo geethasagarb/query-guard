@@ -25,6 +25,16 @@ Both must pass before you open a PR.
 
 Rules live in [`hooks/rules.ts`](hooks/rules.ts) as plain functions. If you change a rule, add tests to [`tests/rules.test.ts`](tests/rules.test.ts) for what it should catch **and** what it should let through.
 
+## CI
+
+GitHub Actions runs the rule tests on every push and PR to `main`, using [Bun](https://bun.sh) instead of Claude Code. To run the same check locally:
+
+```sh
+bun test tests/rules.test.ts
+```
+
+The UI tests in `tests/guard.test.tsx` need Claude Code, so they run locally only, through `claude plugin test .`.
+
 ## Open a PR
 
 1. Fork the repo and make a branch.
