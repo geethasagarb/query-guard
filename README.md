@@ -4,7 +4,7 @@ Query Guard is a Claude Code mod. It stops risky database commands and asks you 
 
 ![Query Guard holding a DELETE without a WHERE clause](docs/demo.gif)
 
-<sub>Demo GIF coming soon.</sub>
+<sub>Illustrated demo of Query Guard</sub>
 
 I built this because one bad `DELETE` can wipe a table. I let Claude run database commands for me, and I wanted a pause before the ones I can't undo.
 
