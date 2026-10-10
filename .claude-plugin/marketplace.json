@@ -8,6 +8,7 @@
     {
       "name": "query-guard",
       "source": "./",
+      "version": "0.1.0",
       "description": "Stops risky SQL and dbt commands in Bash and asks you before they run."
     }
   ]

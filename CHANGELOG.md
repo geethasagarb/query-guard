@@ -4,8 +4,6 @@ All notable changes to Query Guard are listed here.
 
 ## Unreleased
 
-- Added contributor docs, issue templates, and a PR template.
-
 ## v0.1.0 (2026-10-10)
 
 First release.
@@ -16,3 +14,4 @@ First release.
 - Shows the target and a read-only row count for local SQLite files.
 - Proceed / Cancel pane, with a band fallback on narrow terminals.
 - Status line tally of held commands.
+- Contributor docs, issue templates, a PR template, and a roadmap.
