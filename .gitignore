@@ -1,0 +1,6 @@
+node_modules/
+*.db
+.DS_Store
+
+# Written by Claude Code at every load; regenerated, never edited.
+.claude-plugin/types/

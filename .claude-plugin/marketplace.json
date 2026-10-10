@@ -1,0 +1,14 @@
+{
+  "name": "query-guard",
+  "owner": {
+    "name": "Geetha Sagar Bonthu"
+  },
+  "description": "Query Guard for Claude Code. It holds risky database commands until you approve them.",
+  "plugins": [
+    {
+      "name": "query-guard",
+      "source": "./",
+      "description": "Stops risky SQL and dbt commands in Bash and asks you before they run."
+    }
+  ]
+}

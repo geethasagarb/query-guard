@@ -1,0 +1,18 @@
+{
+  "name": "query-guard",
+  "version": "0.1.0",
+  "description": "Stops risky SQL and dbt commands in Bash and asks you before they run.",
+  "author": {
+    "name": "Geetha Sagar Bonthu"
+  },
+  "license": "MIT",
+  "keywords": [
+    "sql",
+    "safety",
+    "dbt",
+    "database"
+  ],
+  "types": "./types/index.d.ts",
+  "homepage": "https://github.com/geethasagarb/query-guard",
+  "repository": "https://github.com/geethasagarb/query-guard"
+}
