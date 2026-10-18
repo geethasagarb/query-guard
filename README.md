@@ -2,7 +2,7 @@
 
 [![Tests](https://github.com/geethasagarb/query-guard/actions/workflows/test.yml/badge.svg)](https://github.com/geethasagarb/query-guard/actions/workflows/test.yml)
 
-Query Guard is a Claude Code mod. It stops risky database commands and asks you before they run.
+Query Guard is a Claude Code mod. It stops risky database commands and asks you before they run...
 
 ![Query Guard holding a DELETE without a WHERE clause](docs/demo.gif)
 
