@@ -101,7 +101,7 @@ For hard blocks, use Claude Code's [permission rules](https://code.claude.com/do
 - **Skip SQL inside heredoc text.** Don't hold a command when the SQL is only text in a heredoc, like the false positive described above.
 - **Row counts for Postgres.** Use a read-only `EXPLAIN` or `COUNT` to show rows at stake.
 - **Per-project rules file.** Let each project turn rules on or off and add its own.
-- **Run rule tests in CI.** Add a small Bun stand-in for `claude-code/testing` so GitHub Actions can run the rule tests.
+- **Run the end-to-end tests in CI.** GitHub Actions already runs the rule tests through a Bun stand-in for `claude-code/testing`. The guard tests in `tests/guard.test.tsx` still run only locally with `claude plugin test`.
 
 Want to help? See [CONTRIBUTING.md](CONTRIBUTING.md).
 
