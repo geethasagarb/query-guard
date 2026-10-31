@@ -2,7 +2,7 @@
 
 [![Tests](https://github.com/geethasagarb/query-guard/actions/workflows/test.yml/badge.svg)](https://github.com/geethasagarb/query-guard/actions/workflows/test.yml)
 
-Query Guard is a Claude Code mod. It stops risky database commands and asks you before they run...
+Query Guard is a Claude Code mod. It stops risky database commands and asks you before they run.
 
 ![Query Guard holding a DELETE without a WHERE clause](docs/demo.gif)
 
@@ -87,7 +87,7 @@ It reads only the text of the command that Claude passes to Bash. If that text h
 - SQL in files, such as `psql -f drop.sql` or `sqlite3 demo.db < reset.sql`.
 - Shell aliases, functions, `eval`, and commands that `$(…)` or variables build at runtime.
 - Connection settings it can't see, such as `~/.pgpass`, `~/.my.cnf`, a `.env` file, or a dbt `profiles.yml` whose default target is production.
-- Database access through MCP tools or any tool other than Bash...
+- Database access through MCP tools or any tool other than Bash.
 
 The rules match patterns, so they will sometimes be wrong. Query Guard can flag a command that only mentions SQL. This happened to me while I wrote this README. Claude ran a Python script through Bash to update a docs file. The script's text included `sqlite3 demo.db "DELETE FROM customers"` as plain text. Query Guard held the script, even though it never touched a database. I pressed Proceed, and it ran.
 
@@ -101,7 +101,7 @@ For hard blocks, use Claude Code's [permission rules](https://code.claude.com/do
 - **Skip SQL inside heredoc text.** Don't hold a command when the SQL is only text in a heredoc, like the false positive described above.
 - **Row counts for Postgres.** Use a read-only `EXPLAIN` or `COUNT` to show rows at stake.
 - **Per-project rules file.** Let each project turn rules on or off and add its own.
-- **Run rule tests in CI.** Add a small Bun stand-in for `claude-code/testing` so GitHub Actions can run the rule tests.
+- **Run the end-to-end tests in CI.** GitHub Actions already runs the rule tests through a Bun stand-in for `claude-code/testing`. The guard tests in `tests/guard.test.tsx` still run only locally with `claude plugin test`.
 
 Want to help? See [CONTRIBUTING.md](CONTRIBUTING.md).
 
